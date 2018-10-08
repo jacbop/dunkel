@@ -3,6 +3,10 @@ language: node_js
 node_js:
   - "8"
 
+env:
+  - S3_BUCKET=dunkel-pipeline
+  - AWS_DEFAULT_REGION=us-east-2
+
 cache:
   directories:
   - node_modules
