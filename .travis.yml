@@ -16,9 +16,7 @@ script:
   - npm run lint
   - npm test
 
-before_deploy:
+after_success:
   - pip install --user awscli
   - pip install --user aws-sam-cli
-
-deploy:
   - sam --version
