@@ -4,6 +4,7 @@ node_js:
   - "8"
 
 env:
+  - PATH=$HOME/.local/bin:$PATH
   - S3_BUCKET=dunkel-pipeline
   - AWS_DEFAULT_REGION=us-east-2
 
@@ -14,3 +15,10 @@ cache:
 script:
   - npm run lint
   - npm test
+
+before_deploy:
+  - pip install --user awscli
+  - pip install --user aws-sam-cli
+
+deploy:
+  - sam --version
