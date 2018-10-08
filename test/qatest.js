@@ -4,7 +4,7 @@ const http = require('https')
 const assert = require('assert')
 
 const AWS = require('aws-sdk')
-AWS.config.update({region: process.env.AWS_DEFAULT_REGION})
+AWS.config.update({ region: process.env.AWS_DEFAULT_REGION })
 const cloudformation = new AWS.CloudFormation()
 
 const params = {
@@ -20,11 +20,13 @@ cloudformation.describeStacks(params, function (err, data) {
     http.get(url, (res) => {
       res.setEncoding('utf8')
       let rawData = ''
-      res.on('data', (chunk) => { rawData += chunk })
+      res.on('data', (chunk) => {
+        rawData += chunk
+      })
       res.on('end', () => {
         try {
           const result = JSON.parse(rawData)
-          assert.deepEqual(result.message, 'Hello World')
+          assert.deepStrictEqual(result.message, 'Hello World')
         } catch (e) {
           console.log(e.message)
           process.exit(1)

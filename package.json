@@ -7,7 +7,7 @@
     "test": "mocha test/test.js",
     "lint": "standard"
   },
-  "author": "Tom Wilberding <tom@wilberding>",
+  "author": "Tom Wilberding <tom@wilberding.com>",
   "license": "Apache-2.0",
   "repository": {
     "type": "git",
@@ -25,11 +25,11 @@
     "sparge",
     "mash"
   ],
-
   "dependencies": {
     "string-split-join": "0.0.1"
   },
   "devDependencies": {
-    "mocha": "^5.0.1"
+    "standard": "12.0.1",
+    "mocha": "5.2.0"
   }
 }
